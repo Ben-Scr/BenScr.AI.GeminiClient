@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="BenScr.AI.GeminiClient/BenScr.AI.Gemini.csproj" />
+  <Project Path="Playground/Playground.csproj" />
+</Solution>
