@@ -15,7 +15,7 @@ The file must be located in the working directory so it can be loaded by **DotNe
 Example `.env` file:
 
 ```env
-GEMINI_API_KEY=your_api_key_here
+GEMINI_API_KEY=YOUR_API_KEY
 ```
 ## How to use
 ### Include
