@@ -13,6 +13,7 @@ public class GeminiClient
     public GeminiClient(string apiKey, string model)
     {
         Client = new Client(apiKey: apiKey);
+        Model = model;
     }
 
     public async Task SetModelAsync(string model)

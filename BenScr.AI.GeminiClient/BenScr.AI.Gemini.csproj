@@ -4,9 +4,38 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+
+
+	  <PackageId>BenScr.AI.GeminiClient</PackageId>
+	  <Version>1.0.0</Version>
+	  <Authors>Ben Schneider</Authors>
+	  <Company>Ben Schneider</Company>
+	  <Description>A C# library that simplifies communication between client and the Gemini API</Description>
+
+	  <RepositoryUrl>https://github.com/Ben-Scr/BenScr.AI.GeminiClient</RepositoryUrl>
+	  <PackageProjectUrl>https://ko-fi.com/benscr</PackageProjectUrl>
+
+	  <RepositoryType>git</RepositoryType>
+
+	  <PackageTags>
+         Gemini;
+		 AI;
+		 Generation;
+		 Client;
+		 Communication;
+	  </PackageTags>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
+	  <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
 
-  <ItemGroup>
+
+	<ItemGroup>
+		<None Include="../README.md" Pack="true" PackagePath="\" />
+		<None Include="icon.png" Pack="true" PackagePath="\" />
+	</ItemGroup>
+
+
+	<ItemGroup>
     <PackageReference Include="DotNetEnv" Version="3.1.1" />
     <PackageReference Include="Google.GenAI" Version="1.4.0" />
     <PackageReference Include="SerializerCS" Version="1.1.0" />
