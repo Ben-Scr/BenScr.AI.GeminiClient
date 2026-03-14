@@ -12,7 +12,7 @@ public static class Program
         Console.Write("User: ");
         string input = Console.ReadLine();
 
-        GenerateContentResponse response = await client.RequestAsync(input);
+        GenerateContentResponse response = await client.RequestResponseAsync(input);
         Console.WriteLine(GeminiUtility.Models[5] + ": " + response.Text);
     }
 }

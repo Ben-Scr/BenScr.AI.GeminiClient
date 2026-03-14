@@ -37,7 +37,7 @@ public class GeminiClient
         }
     }
 
-    public async Task<GenerateContentResponse> RequestAsync(List<Content> contents)
+    public async Task<GenerateContentResponse> RequestResponseAsync(List<Content> contents)
     {
         if (contents == null || contents.Count == 0)
             throw new ArgumentNullException("Contents can't be null or empty");
@@ -50,16 +50,16 @@ public class GeminiClient
         return response;
     }
 
-    public async Task<GenerateContentResponse> RequestAsync(string contents)
-        => await RequestAsync(ToContentList(contents, ContentRole.User));
+    public async Task<GenerateContentResponse> RequestResponseAsync(string contents)
+        => await RequestResponseAsync(ToContentList(contents, ContentRole.User));
 
-    public async Task<(bool Success, GenerateContentResponse? Response, Exception Exception)> TryRequestAsync(List<Content> contents)
+    public async Task<(bool Success, GenerateContentResponse? Response, Exception Exception)> TryRequestResponseAsync(List<Content> contents)
     {
         try
         {
-           return (true, await RequestAsync(contents), null);
+            return (true, await RequestResponseAsync(contents), null);
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             return (false, null, ex);
         }
