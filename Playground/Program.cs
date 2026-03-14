@@ -6,8 +6,23 @@ public static class Program
 {
     public static async Task Main(string[] args)
     {
-        GeminiApiKey geminiApiKey = GeminiApiKey.LoadFromEnvironment();
-        GeminiClient client = new GeminiClient(geminiApiKey.Key, GeminiUtility.Models[7]);
+        string apiKey = null;
+        string model = null;
+
+        if (args.Length > 0)
+            apiKey = args[0];
+        if (args.Length > 1)
+            model = args[1];
+
+        if (apiKey == null)
+        {
+            GeminiApiKey geminiApiKey = GeminiApiKey.LoadFromEnvironment();
+            apiKey = geminiApiKey.Key;
+        }
+
+        model ??= GeminiUtility.Models[0];
+
+        GeminiClient client = new GeminiClient(apiKey, model);
 
         Console.Write("User: ");
         string input = Console.ReadLine();
