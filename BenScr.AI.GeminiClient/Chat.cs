@@ -5,6 +5,7 @@ using Google.GenAI.Types;
 namespace BenScr.AI.Gemini;
 
 
+
 public sealed class Chat
 {
     public string Topic { get; set; }
@@ -38,18 +39,16 @@ public sealed class Chat
         History.RemoveAt(History.Count - 1);
     }
 
-    public async Task GenerateTopic(GeminiClient geminiClient)
+    public async Task GenerateTopic()
     {
         RangeInt rangeInt = new RangeInt(2, 5);
 
-        GenerateContentResponse response = await geminiClient.RequestAsync($"Write a short topic about this chat within {rangeInt} words.");
-        Topic = response.Text;
+        GenerateContentResponse response = await Client.RequestAsync($"Write a short topic about this chat within {rangeInt} words.");
+        Topic = response?.Text ?? "Topic generation failed!";
     }
 
-    public override string ToString()
-    {
-        return Topic;
-    }
+    public override string ToString() => Topic;
+    
 
     public string FromJson(bool isFormated = false)
         => Json.Serialize(this, isFormated ? Json.FormatedJson : null);
