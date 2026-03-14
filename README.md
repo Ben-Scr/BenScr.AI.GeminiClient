@@ -22,11 +22,17 @@ GEMINI_API_KEY=YOUR_API_KEY
 ```csharp
 using BenScr.AI.Gemini;
 ```
+### Load Api Key
+```csharp
+GeminiApiKey geminiApiKey = GeminiApiKey.LoadFromEnvironment();
+```
+
 ### Generate Response
 ```csharp
- GeminiClient client = new GeminiClient(apiKey, modelName);
- string input = Console.ReadLine();
- GenerateContentResponse response = await client.RequestAsync(input);
+GeminiClient client = new GeminiClient(geminiApiKey.Key, "ModelName");
+string input = Console.ReadLine();
+GenerateContentResponse response = await client.RequestAsync(input);
+Console.WriteLine(response.Text);
 ```
 
 ## Example Output
