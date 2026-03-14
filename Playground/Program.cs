@@ -13,6 +13,6 @@ public static class Program
         string input = Console.ReadLine();
 
         GenerateContentResponse response = await client.RequestResponseAsync(input);
-        Console.WriteLine(GeminiUtility.Models[5] + ": " + response.Text);
+        Console.WriteLine(client.Model + ": " + response.Text);
     }
 }
