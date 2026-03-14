@@ -41,7 +41,7 @@ public sealed class Chat
     {
         RangeInt rangeInt = new RangeInt(2, 5);
 
-        GenerateContentResponse response = await Client.RequestResponseAsync($"Write a short topic about this chat within {rangeInt} words.");
+        GenerateContentResponse response = await RequestResponseAsync($"Write a short topic about this chat within {rangeInt} words.");
         Topic = response?.Text ?? "Topic generation failed!";
     }
 
